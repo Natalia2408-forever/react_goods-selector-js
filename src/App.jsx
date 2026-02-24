@@ -38,26 +38,26 @@ export const App = () => {
         <tbody>
           {goods.map(good => (
             <tr
-              key={good.id}
+              key={good}
               className={
-                selectedGood === good.name ? 'has-background-success-light' : ''
+                selectedGood === good ? 'has-background-success-light' : ''
               }
               data-cy="Good"
             >
-              <td>{good.name}</td>
+              <td>{good}</td>
               <td>
-                {selectedGood === '' && (
+                {selectedGood !== good && (
                   <button
                     data-cy="AddButton"
                     type="button"
                     className="button"
-                    onClick={() => setSelectedGood(good.name)}
+                    onClick={() => setSelectedGood(good)}
                   >
                     +
                   </button>
                 )}
 
-                {selectedGood === good.name && (
+                {selectedGood === good && (
                   <button
                     data-cy="RemoveButton"
                     type="button"
